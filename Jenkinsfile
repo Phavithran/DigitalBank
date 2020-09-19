@@ -29,7 +29,7 @@ pipeline{
             steps{
                 input 'Do you approve the deployment?'
                 StrictHostKeyChecking=no
-                sh 'scp target/*.jar deploy@65.0.27.76:/home/deploy'
+                sh 'scp StrictHostKeyChecking=no target/*.jar deploy@65.0.27.76:/home/deploy'
                 sh "ssh deploy@65.0.27.76 'nohup java -jar /home/deploy/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar &'"
             }
         }
