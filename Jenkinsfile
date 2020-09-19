@@ -28,8 +28,8 @@ pipeline{
         stage('Deploy'){
             steps{
                 input 'Do you approve the deployment?'
-	        	sh "docker build . -t phavi85/digibank"
-        		sh "docker run -d -p 8081:8080 phavi85/digibank"
+	        	sh "sudo docker build . -t phavi85/digibank"
+        		sh "suduo docker run -d -p 8081:8080 phavi85/digibank"
             }
         }
     }
