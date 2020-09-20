@@ -28,12 +28,12 @@ pipeline{
         stage('Deploy'){
             steps{
                 input 'Do you approve the deployment?'
-		sh 'scp /var/lib/jenkins/workspace/DigitalBank/target/*.jar produser@15.207.99.183:/home/produser'
-		sh 'scp /var/lib/jenkins/workspace/DigitalBank/Dockerfile produser@15.207.99.183:/home/produser'
-		sh "ssh produser@15.207.99.183 'docker build /home/produser -t phavi85/digibank'"
-		sh "ssh produser@15.207.99.183 'docker run -d -p 8081:8080 phavi85/digibank'"
-//	        	sh "sudo docker build . -t phavi85/digibank"
-//        		sh "sudo docker run -d -p 8081:8080 phavi85/digibank"
+//		sh 'scp /var/lib/jenkins/workspace/DigitalBank/target/*.jar produser@15.207.99.183:/home/produser'
+//		sh 'scp /var/lib/jenkins/workspace/DigitalBank/Dockerfile produser@15.207.99.183:/home/produser'
+//		sh "ssh produser@15.207.99.183 'docker build /home/produser -t phavi85/digibank'"
+//		sh "ssh produser@15.207.99.183 'docker run -d -p 8081:8080 phavi85/digibank'"
+	        	sh "sudo docker build . -t phavi85/digibank"
+        		sh "sudo docker run -d -p 8081:8080 phavi85/digibank"
             }
         }
     }
