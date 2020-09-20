@@ -1,2 +1,3 @@
 FROM openjdk
-ENTRYPOINT ["java","-jar","/app.jar"]
+ADD target/digitalbank.jar digitalbank.jar
+ENTRYPOINT ["java","-jar","/digitalbank.jar"]
