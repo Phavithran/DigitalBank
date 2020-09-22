@@ -33,7 +33,7 @@ pipeline{
 //		sh "ssh produser@15.207.99.183 'docker build /home/produser -t phavi85/digibank'"
 //		sh "ssh produser@15.207.99.183 'docker run -d -p 8081:8080 phavi85/digibank'"
 	        	sh "sudo docker build . -t phavi85/digibank"
-        		sh "sudo docker run -d -p 8086:8080 phavi85/digibank"
+        		sh "sudo docker run -d -p 8082:8080 phavi85/digibank"
 //		        sh "sudo docker push phavi85/digibank"
             }
         }
