@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: digibank
-        image: digibank
+        image: phavi85/digibank
         ports:
         - containerPort: 80
