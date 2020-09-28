@@ -1,4 +1,3 @@
-FROM tomcat:8.0
-ADD ./target/digitalbank-2.1.0.local.war /usr/local/tomcat/webapps/
-EXPOSE 8084
-CMD ["catalina.sh", "run"]
+FROM tomcat:9.0
+EXPOSE 8080
+COPY ./target/bank##2.1.0.local.war /usr/local/tomcat/webapps/
