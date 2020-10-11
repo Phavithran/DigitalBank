@@ -23,18 +23,19 @@ pipeline{
         stage('Package'){
             steps{
                 sh 'mvn clean package'
+		archiveArtifacts artifacts: 'target/*.war', fingerprint: true
             }
         }
         stage('Deploy'){
             steps{
                 input 'Do you approve the deployment?'
-//		sh 'scp /var/lib/jenkins/workspace/DigitalBank/target/*.jar produser@15.207.99.183:/home/produser'
-//		sh 'scp /var/lib/jenkins/workspace/DigitalBank/Dockerfile produser@15.207.99.183:/home/produser'
-//		sh "ssh produser@15.207.99.183 'docker build /home/produser -t phavi85/digibank'"
-//		sh "ssh produser@15.207.99.183 'docker run -d -p 8081:8080 phavi85/digibank'"
-	        	sh "docker build . -t digibank"
-        		sh "docker run -d --name MyDigibank -p 8083:8080 phavi85/digibank"
-//		        sh "sudo docker push phavi85/digibank"
+		sh 'scp /var/lib/jenkins/workspace/Digibank/target/*.war ubuntu@15.206.153.16:/home/ubuntu'
+		sh 'scp /var/lib/jenkins/workspace/Digibank/Dockerfile ubuntu@15.206.153.16:/home/ubuntu'
+		sh "ssh ubuntu@15.206.153.16 'docker build /home/ubuntu -t phavi85/digibank'"
+		sh "ssh ubuntu@15.206.153.16 'docker run -d -p 8084:8080 phavi85/digibank'"
+//*    
+//	        	sh "docker build . -t digibank"
+//        		sh "docker run -d --name MyDigibank -p 8083:8080 phavi85/digibank"
             }
         }
     }
