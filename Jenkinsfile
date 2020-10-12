@@ -35,7 +35,7 @@ pipeline{
 //		sh "ssh ubuntu@15.206.153.16 'docker run -d -p 8084:8080 phavi85/digibank'"
 //*    
 	        	sh "docker build . -t digibank"
-        		sh "docker run -d --name MyDigibank -p 8083:8080 phavi85/digibank"
+        		sh "docker run -d --name MyDigibank -p 50000:50000 -p 8081:8080 phavi85/digibank"
             }
         }
     }
